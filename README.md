@@ -35,7 +35,7 @@ The lead-intelligence panel fills in **live** as the conversation happens.
 ## Demo
 
 🎥 **Live video:** _coming soon_
-🔗 **Try it live:** _coming soon_
+🔗 **Try it live:** https://real-estate-lead-concierge.onrender.com
 
 ![Concierge demo screenshot](docs/screenshot.png)
 
@@ -79,6 +79,8 @@ export $(cat .env | xargs)
 
 python3 app.py
 # open http://localhost:5000
+# (on macOS, port 5000 is often taken by AirPlay — use: PORT=5001 python3 app.py
+#  then open http://localhost:5001)
 ```
 
 Get a free Groq key (no card) at https://console.groq.com/keys
