@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ agency }} — AI Lead Concierge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="grain"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">MH</div>
+      <div class="brand-text">
+        <span class="brand-name">{{ agency }}</span>
+        <span class="brand-sub">AI Lead Concierge</span>
+      </div>
+    </div>
+    <div class="status">
+      <span class="dot {{ 'live' if live else 'demo' }}"></span>
+      {{ 'Live · Groq' if live else 'Demo mode' }}
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- LEFT: conversation -->
+    <section class="chat-panel">
+      <div class="chat-head">
+        <div class="agent-avatar">{{ concierge[0] }}</div>
+        <div>
+          <p class="agent-name">{{ concierge }}</p>
+          <p class="agent-role">Responds in &lt;30 seconds · 24/7</p>
+        </div>
+      </div>
+
+      <div id="messages" class="messages"></div>
+
+      <div class="composer">
+        <input id="input" type="text" autocomplete="off"
+               placeholder="Type as if you were the lead…" />
+        <button id="send" aria-label="Send">→</button>
+      </div>
+      <div class="suggestions" id="suggestions"></div>
+    </section>
+
+    <!-- RIGHT: live lead intelligence -->
+    <aside class="intel-panel">
+      <div class="intel-head">
+        <span class="kicker">Live lead intelligence</span>
+        <h2>Qualification</h2>
+      </div>
+
+      <div class="score-block">
+        <div class="ring" id="ring">
+          <span class="ring-num" id="scoreNum">0</span>
+          <span class="ring-label">lead score</span>
+        </div>
+        <div class="urgency">
+          <span class="urgency-label">Urgency</span>
+          <span class="urgency-pill" id="urgency">—</span>
+        </div>
+      </div>
+
+      <div class="fields">
+        <div class="field" data-key="budget"><span>Budget</span><b id="f-budget">—</b></div>
+        <div class="field" data-key="area"><span>Area</span><b id="f-area">—</b></div>
+        <div class="field" data-key="timeline"><span>Timeline</span><b id="f-timeline">—</b></div>
+        <div class="field" data-key="buyer_type"><span>Buyer type</span><b id="f-buyer">—</b></div>
+        <div class="field" data-key="financing"><span>Financing</span><b id="f-financing">—</b></div>
+      </div>
+
+      <div class="summary-card hidden" id="summaryCard">
+        <div class="summary-head">
+          <span class="kicker gold">Hand-off to agent</span>
+          <button id="copyBtn" class="copy-btn">Copy</button>
+        </div>
+        <p id="summaryText"></p>
+        <p class="next-action" id="nextAction"></p>
+        <div class="routing hidden" id="routingBox">
+          <p class="routing-line">Routed to <b id="routedAgent"></b> <span id="routedReason" class="routed-reason"></span></p>
+          <a id="waBtn" class="wa-btn" href="#" target="_blank" rel="noopener">Send to agent on WhatsApp</a>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    window.CONCIERGE = "{{ concierge }}";
+    window.AGENCY = "{{ agency }}";
+  </script>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
