@@ -4,11 +4,23 @@ An AI concierge that replies to real estate leads **instantly**, qualifies them
 (area, budget, timeline, readiness), scores them, and hands the right agent a
 clean, ready-to-act summary — so agents only spend time on serious buyers.
 
-Built for high-volume agencies and developers who lose leads because nobody
-replies fast enough. A lead contacted within minutes converts far better than
-one contacted an hour later — this closes that gap, 24/7.
+Built for high-volume real estate agencies and property developers who lose
+leads because nobody replies fast enough. A lead contacted within minutes
+converts far better than one contacted an hour later — this closes that gap, 24/7.
 
 > Demo agency: **Marina Homes Dubai**. Concierge name: **Aya**.
+
+## Business Problem
+
+Many real estate agencies spend thousands on ads but lose the leads they pay for, because:
+
+- Nobody replies outside office hours
+- Agents are busy during property viewings
+- Lead quality is unknown until someone manually screens it
+- Follow-up is inconsistent
+
+This concierge qualifies **every** lead the moment it arrives, then hands the
+agent only the serious ones — with the context already gathered.
 
 ## What it does
 
@@ -19,6 +31,27 @@ one contacted an hour later — this closes that gap, 24/7.
 5. **Hands off on WhatsApp** — one tap sends the qualified lead to that agent.
 
 The lead-intelligence panel fills in **live** as the conversation happens.
+
+## Demo
+
+🎥 **Live video:** _coming soon_
+🔗 **Try it live:** _coming soon_
+
+![Concierge demo screenshot](docs/screenshot.png)
+
+## Example output
+
+After a short conversation, the agent receives a qualified lead like this:
+
+```
+Lead Score:        88 / 100
+Area:              Dubai Marina
+Budget:            3M AED
+Timeline:          This Month
+Buyer Type:        Serious Buyer
+Urgency:           High
+Recommended Action: Call within 1 hour.
+```
 
 ## Tech
 
